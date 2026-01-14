@@ -1,0 +1,26 @@
+---
+import { Icon } from "astro-icon/components";
+
+const { img, description, text, action } = Astro.props;
+---
+
+<div
+  class="card bg-white text-black w-full shadow-sm hover:shadow-xl transition-shadow duration-300"
+>
+  <figure>
+    <img src={img} alt="Shoes" />
+  </figure>
+  <div class="card-body">
+    <h2 class="card-title">
+      {text}
+      <div class="badge badge-secondary">{action}</div>
+    </h2>
+    <p>{description}</p>
+    <div class="card-actions justify-end">
+      <div class="badge badge-outline">{action}</div>
+      <div class="badge badge-outline">
+        <Icon name="mdi:heart" class="w-4 h-4 text-red-500" />
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,52 @@
+---
+// HeroSplit.astro
+const titleLine1 = "AIR MAX";
+const titleLine2 = "PULSE";
+const description = "Diseñadas para superar la gravedad. Una amortiguación extrema que reinventa la comodidad urbana.";
+const price = "$3,499";
+---
+
+<section class="relative w-full min-h-screen bg-neutral-900 flex flex-col lg:flex-row overflow-hidden">
+  
+  <div class="w-full lg:w-1/2 p-8 md:p-16 flex flex-col justify-center relative z-10 order-2 lg:order-1">
+    
+    <span class="text-lime-400 font-bold tracking-widest uppercase mb-4 text-sm animate-pulse">
+      Nuevos Lanzamientos
+    </span>
+
+    <h1 class="text-white font-black text-6xl md:text-8xl lg:text-9xl leading-[0.85] tracking-tighter mb-6">
+      <span class="block text-transparent bg-clip-text bg-gradient-to-r from-white to-neutral-400">
+        {titleLine1}
+      </span>
+    </h1>
+
+    <p class="text-neutral-400 text-lg md:text-xl max-w-md mb-8 font-light leading-relaxed">
+      {description}
+    </p>
+
+    <div class="flex flex-col sm:flex-row items-start sm:items-center gap-6">
+      <button class="bg-lime-400 hover:bg-lime-500 text-black font-bold py-4 px-10 rounded-none transform hover:-translate-y-1 transition-all duration-300">
+        COMPRAR AHORA
+      </button>
+      <span class="text-white font-mono text-xl tracking-wider">
+        {price}
+      </span>
+    </div>
+  </div>
+
+  <div class="w-full lg:w-1/2 h-[50vh] lg:h-auto relative bg-neutral-800 order-1 lg:order-2 group overflow-hidden">
+    
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-neutral-700 via-neutral-800 to-neutral-900"></div>
+    
+    <img 
+      src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=1920&auto=format&fit=crop" 
+      alt="Nike Shoe Red"
+      class="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-110"
+    />
+
+    <h2 class="absolute -bottom-10 -left-10 text-[10rem] font-black text-white/5 select-none pointer-events-none z-0 hidden lg:block">
+      JUST DO IT
+    </h2>
+  </div>
+
+</section>

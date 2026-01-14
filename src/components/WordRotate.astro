@@ -1,0 +1,77 @@
+---
+import jordanFeature from "../assets/img/jordan-feature.jpg";
+---
+<section class="py-20 bg-gradient-to-b from-black via-neutral-950 to-black" id="novedades">
+  <div class="max-w-6xl mx-auto px-4">
+    <div class="flex items-center justify-between gap-4 mb-10">
+      <div>
+        <p class="text-sm uppercase tracking-[0.3em] text-lime-400">Tendencias</p>
+        <h2 class="text-3xl md:text-4xl font-black text-white mt-2 italic tracking-tight">
+          Lo más caliente en cancha
+        </h2>
+      </div>
+      <button class="hidden md:inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-white/70 border border-white/10 px-4 py-2 rounded-full hover:border-lime-400 hover:text-lime-400 transition-colors">
+        Ver todo
+      </button>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-4 lg:gap-6 auto-rows-[220px]">
+      <div class="md:col-span-2 md:row-span-2 relative rounded-3xl overflow-hidden group bg-neutral-900">
+        <img
+          src={jordanFeature.src}
+          alt="Jordan"
+          class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+        />
+        <div class="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-transparent" />
+        <div class="absolute bottom-0 left-0 right-0 p-6 md:p-8 flex flex-col gap-3">
+          <span class="inline-flex items-center text-[11px] font-semibold uppercase tracking-[0.25em] text-lime-300">
+            Exclusivo
+          </span>
+          <h3 class="text-white text-2xl md:text-3xl font-black tracking-tight">
+            Air Jordan Legacy Pack
+          </h3>
+          <p class="text-sm text-white/70 max-w-md">
+            Edición limitada inspirada en los momentos más icónicos de la leyenda.
+          </p>
+          <div class="mt-2 flex flex-wrap items-center gap-3">
+            <button class="inline-flex items-center justify-center rounded-full bg-lime-400 text-black text-xs font-bold uppercase tracking-[0.2em] px-5 py-2 hover:bg-lime-300 transition-colors">
+              Comprar ahora
+            </button>
+            <span class="text-xs text-white/60">Stock limitado · Envío gratis</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="md:col-span-2 bg-neutral-950 rounded-3xl p-6 flex items-center justify-between text-white border border-white/5">
+        <div class="space-y-2">
+          <p class="text-[11px] uppercase tracking-[0.25em] text-lime-400">Nuevo drop</p>
+          <h3 class="text-xl font-black tracking-tight">Jordan 1 Retro High OG</h3>
+          <p class="text-sm text-white/60">Colorway exclusivo para cancha dura y indoor.</p>
+          <button class="mt-2 inline-flex items-center text-xs font-semibold uppercase tracking-[0.2em] text-lime-400 hover:text-lime-300">
+            Ver detalles
+          </button>
+        </div>
+        <img src={jordanFeature.src} alt="Jordan 1 Retro High OG" class="w-24 h-auto rotate-12 drop-shadow-[0_15px_35px_rgba(0,0,0,0.7)]" />
+      </div>
+
+      <div class="md:col-span-1 bg-neutral-900 rounded-3xl p-6 text-white relative overflow-hidden border border-white/5">
+        <div class="absolute -right-6 -bottom-6 w-28 h-28 bg-lime-500/20 rounded-full blur-2xl" />
+        <h3 class="font-black text-lg tracking-tight">Accesorios Pro</h3>
+        <p class="text-sm text-white/60 mt-1">
+          Muñequeras, grips y mochilas diseñadas para alto rendimiento.
+        </p>
+        <button class="mt-4 inline-flex text-xs font-semibold uppercase tracking-[0.2em] text-lime-400 hover:text-lime-300">
+          Ver accesorios
+        </button>
+      </div>
+
+      <div class="md:col-span-1 bg-neutral-950 rounded-3xl p-6 flex flex-col justify-center items-center text-center border border-dashed border-lime-400/40 hover:border-lime-400 transition-colors cursor-pointer">
+        <span class="text-4xl mb-2">⚡</span>
+        <h3 class="font-black text-white tracking-tight">Ofertas relámpago</h3>
+        <p class="text-xs text-white/60 mt-1 max-w-[12rem]">
+          Hasta un 40% en modelos seleccionados por tiempo limitado.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>

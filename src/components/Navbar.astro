@@ -1,0 +1,41 @@
+---
+import MobileMenu from "./React/MobileMenu.tsx";
+
+const links = [
+  { label: "Inicio", href: "/" },
+  { label: "Cursos", href: "#cursos" },
+  { label: "Novedades", href: "#novedades" },
+  { label: "Contacto", href: "/contacto" },
+];
+---
+
+<nav class="fixed w-full z-50 top-0 transition-all duration-300">
+  <div class="absolute inset-0 bg-black/10 backdrop-blur-md border-b border-white/10"></div>
+  <div class="max-w-screen-xl flex items-center justify-between mx-auto p-6 relative">
+
+    <!-- LOGO -->
+    <a href="/" class="flex items-center gap-3 group">
+      <img src="https://flowbite.com/docs/images/logo.svg" class="h-8 transition-transform group-hover:scale-110" />
+      <span class="text-2xl font-black text-white uppercase tracking-tighter italic">Nike</span>
+    </a>
+
+    <!-- MENU DESKTOP -->
+    <ul class="hidden md:flex gap-10 font-bold uppercase tracking-wide text-sm">
+      {links.map(link => (
+        <li>
+          <a
+            href={link.href}
+            class="text-white/80 hover:text-lime-400 transition-colors duration-300 relative group"
+          >
+            {link.label}
+            <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-lime-400 transition-all duration-300 group-hover:w-full"></span>
+          </a>
+        </li>
+      ))}
+    </ul>
+
+    <!-- MENU MOBILE (REACT) -->
+    <MobileMenu links={links} client:load />
+
+  </div>
+</nav>

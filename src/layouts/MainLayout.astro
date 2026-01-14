@@ -1,0 +1,23 @@
+---
+import Navbar from "../components/Navbar.astro";
+import Hero from "../components/Hero.astro";
+import "../styles/global.css";
+import Footer from "../components/Footer.astro";
+---
+
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>JUST DO IT</title>
+  </head>
+  <body class="bg-base-200">
+    <Navbar />
+    <Hero />
+    <main>
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>
