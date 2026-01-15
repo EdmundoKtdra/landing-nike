@@ -158,49 +158,79 @@
 </section>
 
 <script>
-  // Importamos el cliente que acabamos de crear
   import { supabase } from "@/lib/supabase";
 
-  // 1. Seleccionamos el formulario
+  function showSuccessAlert() {
+    const existing = document.querySelector(".cf-success-alert-overlay");
+    if (existing) {
+      existing.remove();
+    }
+
+    const overlay = document.createElement("div");
+    overlay.className =
+      "cf-success-alert-overlay fixed inset-0 z-[9999] flex items-center justify-center bg-black/60 backdrop-blur-sm";
+
+    const box = document.createElement("div");
+    box.className =
+      "bg-neutral-900 border border-lime-400/70 px-8 py-6 max-w-sm w-[90%] text-center shadow-2xl";
+
+    const title = document.createElement("p");
+    title.className =
+      "text-sm font-black uppercase tracking-[0.2em] text-lime-400 mb-2";
+    title.textContent = "Mensaje enviado";
+
+    const text = document.createElement("p");
+    text.className = "text-sm text-white/90 mb-4";
+    text.textContent = "Nos pondremos en contacto contigo próximamente.";
+
+    const button = document.createElement("button");
+    button.className =
+      "mt-2 inline-flex items-center justify-center px-6 py-2 bg-lime-400 text-black font-black uppercase tracking-widest text-xs";
+    button.textContent = "Cerrar";
+    button.addEventListener("click", function () {
+      overlay.remove();
+    });
+
+    box.appendChild(title);
+    box.appendChild(text);
+    box.appendChild(button);
+    overlay.appendChild(box);
+    document.body.appendChild(overlay);
+  }
+
   const form = document.querySelector("form") as HTMLFormElement;
 
-  // 2. Escuchamos el evento "submit"
   form?.addEventListener("submit", async (e) => {
-    e.preventDefault(); // Evita que la página se recargue
+    e.preventDefault();
 
-    // 3. Capturamos los datos
     const formData = new FormData(form);
     const nombre = formData.get("nombre") as string;
     const email = formData.get("email") as string;
     const mensaje = formData.get("mensaje") as string;
 
-    // Pequeña validación
     if (!nombre || !email || !mensaje) {
       alert("Por favor completa todos los campos.");
       return;
     }
 
-    // Cambiar texto del botón para feedback visual
     const btn = form.querySelector("button") as HTMLButtonElement;
     const textoOriginal = btn.innerText;
     btn.innerText = "ENVIANDO...";
     btn.disabled = true;
 
-    // 4. Enviamos a Supabase
     try {
       const { data, error } = await supabase
-        .from("contactos") // Nombre exacto de tu tabla en Supabase
+        .from("Contactos")
         .insert([{ nombre: nombre, email: email, mensaje: mensaje }]);
 
       if (error) throw error;
 
-      alert("¡Mensaje enviado! Nos pondremos en contacto.");
-      form.reset(); // Limpia el formulario
+      showSuccessAlert();
+      form.reset();
     } catch (error) {
       console.error("Error:", error);
       alert("Hubo un error al enviar. Intenta de nuevo.");
     } finally {
-      // Restaurar botón
       btn.innerText = textoOriginal;
       btn.disabled = false;
     }
